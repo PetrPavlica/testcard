@@ -1,0 +1,30 @@
+application:
+	errorPresenter: Error
+	mapping:
+		*: *Module\*Presenter
+
+database:
+	dsn: 'mssql:host=127.0.0.1;dbname=bartek'
+	user: root
+	password:
+parameters:
+	wwwDir: %appDir%/../www
+session:
+	expiration: 14 days
+
+
+di:
+	export:
+		parameters: no
+		tags: no
+
+
+services:
+	- IPeopleFactory
+	- IPeopleFormFactory
+	- ICardFormFactory
+	- ISignFormFactory
+	- App\Model\AdminSignModel
+	- App\Forms\FormFactory
+	- App\Model\PeopleModel
+	- App\Router\RouterFactory::createRouter
